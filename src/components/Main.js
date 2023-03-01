@@ -42,15 +42,6 @@ function Main({onClickAvatar, onClickProfile, onClickPlace, onCardClick}) {
           <Card key={card._id} card={card} onCardClick={onCardClick}/>
         ))}
       </section>
-      {/* <div className="popup popup_type_check">
-            <div className="popup__container">
-            <form className="popup__form popup__form_name_check" name="check" noValidate>
-                <h2 className="popup__check">Вы уверены?</h2>
-                <button className="popup__button popup__button_save" type="submit">Да</button>
-            </form>
-            <button className="popup__button popup__button_close" type="button"></button>
-            </div>
-        </div> */}
     </main>
   );
 }

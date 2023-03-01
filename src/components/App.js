@@ -7,21 +7,21 @@ import PopupWithForm from './PopupWithForm';
 
 
 function App() {
-  const [isEditProfilePopupOpen, setEditProfilePopupOpen] = React.useState('');
-  const [isAddPlacePopupOpen, setAddPlacePopupOpen] = React.useState('');
-  const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = React.useState('');
+  const [isEditProfilePopupOpen, setEditProfilePopupOpen] = React.useState(false);
+  const [isAddPlacePopupOpen, setAddPlacePopupOpen] = React.useState(false);
+  const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = React.useState(false);
   const [selectedCard, setSelectedCard] = React.useState(null);
 
   function handleEditProfileClick() {
-    setEditProfilePopupOpen("popap_opened");
+    setEditProfilePopupOpen(true);
   }
 
   function handleAddPlaceClick() {
-    setAddPlacePopupOpen("popap_opened");
+    setAddPlacePopupOpen(true);
   }
 
   function handleEditAvatarClick() {
-    setEditAvatarPopupOpen("popap_opened");
+    setEditAvatarPopupOpen(true);
   }
 
   function handleCardClick(card) {
@@ -29,9 +29,9 @@ function App() {
   }
 
   function closeAllPopups() {
-    setEditProfilePopupOpen("");
-    setAddPlacePopupOpen("");
-    setEditAvatarPopupOpen("");
+    setEditProfilePopupOpen(false);
+    setAddPlacePopupOpen(false);
+    setEditAvatarPopupOpen(false);
     setSelectedCard(null);
   }
   
