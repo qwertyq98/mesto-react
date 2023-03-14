@@ -39,13 +39,13 @@ class Api {
     .then(this._checkResponse);
   }
 
-  setUserInfoPopap(data) {
+  setUserInfoPopap(userData) {
     return fetch(`${this.baseUrl}/users/me`, {
       method: 'PATCH',
       headers: this.headers,
       body: JSON.stringify({
-        name: data.userName,
-        about: data.userAbout
+        name: userData.name,
+        about: userData.about
       })
     })
     .then(this._checkResponse);
@@ -59,17 +59,9 @@ class Api {
     .then(this._checkResponse);
   }
 
-  like(id) {
-    return fetch(`${this.baseUrl}/cards/${id}/likes`, {
-      method: 'PUT',
-      headers: this.headers,
-    })
-    .then(this._checkResponse);
-  }
-
-  deleteLike(_id) {
+  changeLikeCardStatus(_id, isLiked) {
     return fetch(`${this.baseUrl}/cards/${_id}/likes`, {
-      method: 'DELETE',
+      method: `${isLiked ? 'PUT' : 'DELETE'}`,
       headers: this.headers,
     })
     .then(this._checkResponse);
