@@ -72,15 +72,17 @@ function App() {
       .then((newCard) => {
         setCards((state) => {
           return state.map((c) => c._id === card._id ? newCard : c);
-        });
-    });
+        })
+      })
+      .catch((err) => console.log(err))
   }
 
   function handleCardDelete(card) {
     api.deleteCard(card._id)
       .then(() => {
-        setCards(cards.filter(item => item !== card));
-    });
+        setCards(prevState=> prevState.filter(item => item !== card));
+      })
+      .catch((err) => console.log(err))
   }
 
   function handleUpdateUser(userData) {
@@ -111,6 +113,7 @@ function App() {
         setCards([newCard, ...cards]);
         closeAllPopups();
       })
+      .catch((err) => console.log(err))
   }
   
   return (

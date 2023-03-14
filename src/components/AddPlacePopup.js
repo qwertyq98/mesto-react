@@ -5,6 +5,7 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
   const placeNameRef = React.useRef('');
   const placeLinkRef = React.useRef('');
 
+
   function handleSubmit(e) {
     e.preventDefault();
   
@@ -12,9 +13,14 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
       name: placeNameRef.current.value,
       link: placeLinkRef.current.value
     });
-    placeNameRef.current.value = '';
-    placeLinkRef.current.value = '';
   } 
+
+  React.useEffect(() => {
+    if(isOpen) {
+      placeNameRef.current.value = '';
+      placeLinkRef.current.value = '';
+    }
+  }, [isOpen])
 
   return (
     <PopupWithForm
